@@ -15,6 +15,7 @@ public class FeedController {
 
     @Autowired
     public FeedController(FeedService feedService) { this.feedService = feedService; }
+
     @GetMapping(path= "/{feedId}")
     public Optional<Feed> getById(@PathVariable Long feedId) { return feedService.getById(feedId); }
     @PostMapping
@@ -25,5 +26,6 @@ public class FeedController {
     public void delete(@RequestBody Feed feed) { feedService.delete(feed); }
 
     @GetMapping(path="/generate/{userId}")
-    public Feed feedGenerator(@PathVariable Long userId) { return null; }
+    public Iterable<Feed> feedGenerator(@PathVariable Long userId) {
+        return feedService.getByAccountId(userId); }
 }

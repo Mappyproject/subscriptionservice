@@ -35,4 +35,9 @@ public class SubscriptionService implements ISubscriptionService {
     public void delete(Subscription subscription) {
         subscriptionRepository.delete(subscription);
     }
+
+    @Override
+    public Iterable<Subscription> getByAccountId(Long accountId) {
+        return subscriptionRepository.findAllByAccountId(accountId);
+    }
 }

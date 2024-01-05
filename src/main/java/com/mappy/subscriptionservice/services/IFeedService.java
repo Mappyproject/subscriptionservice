@@ -9,4 +9,5 @@ public interface IFeedService {
     Optional<Feed> getById(Long id);
     Feed update(Feed feed);
     void delete(Feed feed);
+    Iterable<Feed> getByAccountId(Long userId);
 }

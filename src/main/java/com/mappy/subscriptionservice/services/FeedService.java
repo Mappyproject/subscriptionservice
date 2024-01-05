@@ -31,4 +31,9 @@ public class FeedService implements IFeedService {
     public void delete(Feed feed) {
         feedRepository.delete(feed);
     }
+
+    @Override
+    public Iterable<Feed> getByAccountId(Long accountId) {
+        return feedRepository.findAllByAccountId(accountId);
+    }
 }

@@ -20,7 +20,8 @@ public class SubscriptionController {
     @GetMapping(path= "/{subscriptionId}")
     public Optional<Subscription> getById(@PathVariable Long subscriptionId) { return subscriptionService.getById(subscriptionId); }
     @PostMapping
-    public Subscription save(@RequestBody Subscription subscription) { return subscriptionService.save(subscription); }
+    public Subscription save(@RequestBody Subscription subscription) {
+        return subscriptionService.save(subscription); }
     @PutMapping
     public Subscription update(@RequestBody Subscription subscription) { return subscriptionService.update(subscription); }
     @DeleteMapping
