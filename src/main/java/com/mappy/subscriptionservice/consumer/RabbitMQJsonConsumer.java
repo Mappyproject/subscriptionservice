@@ -37,8 +37,10 @@ public class RabbitMQJsonConsumer {
             }
         }
         // if feed with account id does not exist it will create a new feed
-        Feed feed = new Feed(accountFeedDto.getAccountId(), accountFeedDto.getProject_ids());
-        feedService.save(feed);
+        if(accountFeedDto.getProject_ids() != null) {
+            Feed feed = new Feed(accountFeedDto.getAccountId(), accountFeedDto.getProject_ids());
+            feedService.save(feed);
+        }
     }
 
     public void saveSubscriptionData(AccountFeedDto accountFeedDto) {
@@ -53,9 +55,11 @@ public class RabbitMQJsonConsumer {
             }
         }
         // if subscription with account id does not exist it will create a new subscription
-        for(Long projectId : accountFeedDto.getProject_ids()) {
-            Subscription subscription = new Subscription(accountFeedDto.getAccountId(), projectId);
-            subscriptionService.save(subscription);
+        if(accountFeedDto.getProject_ids() != null ) {
+            for (Long projectId : accountFeedDto.getProject_ids()) {
+                Subscription subscription = new Subscription(accountFeedDto.getAccountId(), projectId);
+                subscriptionService.save(subscription);
+            }
         }
     }
 }
