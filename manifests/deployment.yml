@@ -1,0 +1,19 @@
+apiVersion : apps/v1
+kind: Deployment
+metadata:
+  name: mappyprojectsubscriptionservice 
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: mappyprojectsubscriptionservice
+  template:
+    metadata:
+      labels:
+        app: mappyprojectsubscriptionservice 
+    spec:
+      containers:
+        - name: mappyprojectsubscriptionservice 
+          image: mappycontainerregistry.azurecr.io/mappyprojectsubscriptionservice
+          ports:
+          - containerPort: 8085
