@@ -5,7 +5,7 @@
 replicaCount: 1
 
 image:
-  repository: mappyacrrepo.azurecr.io/mappyproject/subscriptionservice
+  repository: mappyacrrepo.azurecr.io/Mappyproject/subscriptionservice
   pullPolicy: IfNotPresent
   # Overrides the image tag whose default is the chart appVersion.
   tag: ""
