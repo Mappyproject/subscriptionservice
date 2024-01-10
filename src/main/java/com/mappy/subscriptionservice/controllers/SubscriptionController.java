@@ -18,7 +18,7 @@ public class SubscriptionController {
     @GetMapping
     public Iterable<Subscription> getAll() { return subscriptionService.getAll(); }
     @GetMapping(path= "/{subscriptionId}")
-    public Optional<Subscription> getById(@PathVariable Long subscriptionId) { return subscriptionService.getById(subscriptionId); }
+    public Optional<Subscription> getById(@PathVariable int subscriptionId) { return subscriptionService.getById(subscriptionId); }
     @PostMapping
     public Subscription save(@RequestBody Subscription subscription) {
         return subscriptionService.save(subscription);

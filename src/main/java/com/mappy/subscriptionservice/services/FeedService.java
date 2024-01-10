@@ -18,7 +18,7 @@ public class FeedService implements IFeedService {
     }
 
     @Override
-    public Optional<Feed> getById(Long id) {
+    public Optional<Feed> getById(int id) {
         return feedRepository.findById(id);
     }
 

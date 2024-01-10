@@ -17,7 +17,7 @@ public class FeedController {
     public FeedController(FeedService feedService) { this.feedService = feedService; }
 
     @GetMapping(path= "/{feedId}")
-    public Optional<Feed> getById(@PathVariable Long feedId) { return feedService.getById(feedId); }
+    public Optional<Feed> getById(@PathVariable int feedId) { return feedService.getById(feedId); }
     @PostMapping
     public Feed save(@RequestBody Feed feed) { return feedService.save(feed); }
     @PutMapping

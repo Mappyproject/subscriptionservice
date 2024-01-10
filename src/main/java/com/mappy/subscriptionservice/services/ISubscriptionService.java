@@ -8,7 +8,7 @@ import java.util.Optional;
 public interface ISubscriptionService {
     Subscription save(Subscription subscription);
     Iterable<Subscription> getAll();
-    Optional<Subscription> getById(Long id);
+    Optional<Subscription> getById(int id);
     Subscription update(Subscription subscription);
     void delete(Subscription subscription);
     Iterable<Subscription> getByAccountId(Long accountId);

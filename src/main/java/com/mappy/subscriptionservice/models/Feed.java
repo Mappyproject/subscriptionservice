@@ -1,24 +1,24 @@
 package com.mappy.subscriptionservice.models;
 
-import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.data.mongodb.core.mapping.Sharded;
 
 import java.util.List;
 
-@Entity
 @Data
 @Getter
 @AllArgsConstructor
 @NoArgsConstructor
+@Document(collection = "Subscription")
 public class Feed {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private int id;
     private Long accountId;
-    @ElementCollection
     private List<Long> project_ids;
 
     public Feed(Long accountId, List<Long> project_ids) {

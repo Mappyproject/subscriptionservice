@@ -6,7 +6,7 @@ import java.util.Optional;
 
 public interface IFeedService {
     Feed save(Feed feed);
-    Optional<Feed> getById(Long id);
+    Optional<Feed> getById(int id);
     Feed update(Feed feed);
     void delete(Feed feed);
     Iterable<Feed> getByAccountId(Long userId);

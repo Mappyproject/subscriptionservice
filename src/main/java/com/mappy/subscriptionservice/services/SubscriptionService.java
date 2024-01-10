@@ -22,7 +22,7 @@ public class SubscriptionService implements ISubscriptionService {
     }
 
     @Override
-    public Optional<Subscription> getById(Long id) {
+    public Optional<Subscription> getById(int id) {
         return subscriptionRepository.findById(id);
     }
 
