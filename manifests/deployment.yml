@@ -14,6 +14,6 @@ spec:
     spec:
       containers:
         - name: mappyprojectsubscriptionservice 
-          image: mappycontainerregistry.azurecr.io/mappyprojectsubscriptionservice
+          image: mappyacrrepo.azurecr.io/mappyproject/subscriptionservice
           ports:
           - containerPort: 8085
