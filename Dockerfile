@@ -1,4 +1,5 @@
 FROM openjdk:17
-EXPOSE 8085
-COPY target/subscriptionservice-0.0.1-SNAPSHOT.jar subscriptionservice.jar
+ARG JAR_FILE=target/*.jar
+COPY ${JAR_FILE} subscriptionservice.jar
 ENTRYPOINT ["java", "-jar", "/subscriptionservice.jar"]
+EXPOSE 8085
