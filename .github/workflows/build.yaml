@@ -6,7 +6,7 @@ on:
 
     branches:
 
-      - '!master'   # excludes master
+      - 'main'   # includes main
 
   pull_request:
 
