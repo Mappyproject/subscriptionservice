@@ -9,6 +9,12 @@ jobs:
   sonarcloud:
     runs-on: ubuntu-latest
 
+    env:
+      EUREKA_HOST: ${{ secrets.EUREKA_HOST }}
+      MONGODB_URL: ${{ secrets.MONGODB_URL }}
+      MONGODB_NAME: ${{ secrets.MONGODB_NAME }}
+      SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+
     steps:
     - name: Checkout code
       uses: actions/checkout@v2
@@ -21,7 +27,10 @@ jobs:
 
     - name: Build and test
       run: |
-        mvn clean verify
+        echo "Eureka Host: $EUREKA_HOST"
+        echo "MongoDB URL: $MONGODB_URL"
+        echo "MongoDB Name: $MONGODB_NAME"
+        ./mvnw clean verify
 
     - name: SonarCloud Scan
       run: |
