@@ -3,12 +3,13 @@ package com.mappy.subscriptionservice.controllers;
 import com.mappy.subscriptionservice.models.Feed;
 import com.mappy.subscriptionservice.services.FeedService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Optional;
 
 @RestController
-@CrossOrigin(origins = "*", maxAge = 3600)
+@CrossOrigin(origins = "http://localhost:8765", maxAge = 3600)
 @RequestMapping("/api/feed")
 public class FeedController {
     private final FeedService feedService;
