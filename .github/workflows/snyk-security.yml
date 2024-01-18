@@ -32,10 +32,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@master
+      - name: Make mvnw executable
+        run: chmod +x ./mvnw
       - name: Run Snyk to check for vulnerabilities
         uses: snyk/actions/maven@master
-        name: Make mvnw executable
-        run: chmod +x ./mvnw
         continue-on-error: true # To make sure that SARIF upload gets called
         env:
           SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
