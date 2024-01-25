@@ -51,3 +51,10 @@ jobs:
             java-version: 17
         - name: Push to Docker Hub
           run: mvn clean install jib:build -Djib.to.auth.username=${{ secrets.DOCKERHUB_USERNAME }} -Djib.to.auth.password=${{ secrets.DOCKERHUB_PASSWORD }}
+          # Deploy docker hub image to azure with publish auth
+        - name: deploy to azure
+          uses: azure/webapps-deploy@v2
+          with:
+              app-name: 'subscriptionservice'
+              publish-profile: ${{ secrets.AZURE_APPSERVICE_PUBLISHPROFILE }}
+              images: 'index.docker.io/${{ secrets.DOCKER_USERNAME }}/subscriptionservice'
