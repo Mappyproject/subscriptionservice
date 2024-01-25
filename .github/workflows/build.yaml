@@ -50,4 +50,4 @@ jobs:
           with:
             java-version: 17
         - name: Push to Docker Hub
-          run: mvn clean jib:build -Djib.to.auth.username=${{ secrets.DOCKERHUB_USERNAME }} -Djib.to.auth.password=${{ secrets.DOCKERHUB_PASSWORD }}
+          run: mvn clean install jib:build -Djib.to.auth.username=${{ secrets.DOCKERHUB_USERNAME }} -Djib.to.auth.password=${{ secrets.DOCKERHUB_PASSWORD }}
